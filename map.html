@@ -1,0 +1,127 @@
+<html>
+
+<head>
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="material/css/ripples.min.css" rel="stylesheet">
+    <link href="material/css/material-wfont.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="http://turbo87.github.io/leaflet-sidebar/src/L.Control.Sidebar.css" />
+
+    <style>
+#map {
+    display:block;
+    position:absolute;
+    height:auto;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin-top:60px; /* Set margin to your navbar height */
+}
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+<div class="navbar navbar-warning navbar-fixed-top">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="javascript:void(0)">Nagari</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-warning-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="javascript:void(0)">Active</a></li>
+            <li><a href="javascript:void(0)">Link</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0)">Action</a></li>
+                    <li><a href="javascript:void(0)">Another action</a></li>
+                    <li><a href="javascript:void(0)">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Dropdown header</li>
+                    <li><a href="javascript:void(0)">Separated link</a></li>
+                    <li><a href="javascript:void(0)">One more separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+        <form class="navbar-form navbar-left">
+            <input class="form-control col-lg-8" placeholder="Search" type="text">
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="javascript:void(0)">Link</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="javascript:void(0)">Action</a></li>
+                    <li><a href="javascript:void(0)">Another action</a></li>
+                    <li><a href="javascript:void(0)">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li><a href="javascript:void(0)">Separated link</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div id="map"></div>
+<div id="sidebar">
+    
+</div>
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="material/js/ripples.min.js"></script>
+    <script src="material/js/material.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="http://turbo87.github.io/leaflet-sidebar/src/L.Control.Sidebar.js"></script>
+    <script>
+var map = L.map('map').setView([28.578, 77.243], 13);
+
+L.tileLayer('http://{s}.tiles.mapbox.com/v3/dmj.j84l2g8e/{z}/{x}/{y}.png', {
+maxZoom: 18
+}).addTo(map);
+
+var sidebar = L.control.sidebar('sidebar', {
+    position: 'left'
+});
+var marker = L.marker([28.5789, 77.2439]).addTo(map);
+
+map.addControl(sidebar);
+
+marker.on('click', function() {
+    $('#sidebar').empty();
+    $('#sidebar').append("<h1>Example RWA 1</h1>")
+    $('#sidebar').append("<img src='./a.jpg' width=350px />")
+    $('#sidebar').append("<h3>Opportunities</h3>")
+    $('#sidebar').append("<ul><li>Advertisement</li><li>Promotions</li><li>Venue</li><li>CSR</li></ul>")
+    sidebar.show()
+});
+
+var marker2 = L.marker([28.5650, 77.2100]).addTo(map);
+
+marker2.on('click', function() {
+    $('#sidebar').empty();
+    $('#sidebar').append("<h1>Example RWA 2</h1>")
+    $('#sidebar').append("<img src='./b.jpg' width=350px />")
+    $('#sidebar').append("<h3>Opportunities</h3>")
+    $('#sidebar').append("<ul><li>Advertisement</li><li>Promotions</li><li>Venue</li><li>CSR</li></ul>")
+    sidebar.show()
+});
+
+    </script>
+
+</div>
+</body>
+
+</html>
