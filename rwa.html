@@ -1,0 +1,163 @@
+<html>
+
+<head>
+
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="material/css/ripples.min.css" rel="stylesheet">
+    <link href="material/css/material-wfont.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+
+    <style>
+        .jumbotron {
+          color: white;
+          text-shadow: #444 0 1px 1px;
+          background:transparent;
+          background: url('a.jpg') no-repeat center center;
+          background-size: 100%;
+
+        }
+        #map { height: 180px; }
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+<div class="navbar navbar-warning">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-warning-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="javascript:void(0)">Nagari</a>
+    </div>
+    <div class="navbar-collapse collapse navbar-warning-collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="map.html">Browse</a></li>
+            <li><a href="rwa.html">Sample RWA</a></li>
+            
+        </ul>
+        <form class="navbar-form navbar-left">
+            <input class="form-control col-lg-8" placeholder="Search" type="text">
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="javascript:void(0)">Login</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container">
+<!-- JUMBOTRON -->
+<div class="jumbotron">
+    <h1>Example RWA</h1>
+    <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+</div>
+<!-- /JUMBOTRON -->
+<div class="btn-group btn-group-justified">
+    <a href="javascript:void(0)" class="btn btn-default">Activity Feed</a>
+    <a href="javascript:void(0)" class="btn btn-default">Events/Projects</a>
+    <a href="javascript:void(0)" class="btn btn-default">Opportunities</a>
+</div>
+
+
+
+<div class="row">
+<div class="col-md-8">
+<div class="well">
+<div class="list-group">
+    <div class="list-group-item">
+        <div class="row-picture">
+            <img class="circle" src="p10.jpeg" alt="icon">
+        </div>
+        <div class="row-content">
+            <h4 class="list-group-item-heading">Mohan Kumar 
+            <small><span class="label label-info">Secretary</span></small> </h4> 
+            <p class="list-group-item-text">Tomorrow we will be celebrating Diwali at ...</p>
+        </div>
+    </div>
+    <div class="list-group-separator"></div>
+    <div class="list-group-item">
+        <div class="row-picture">
+            <img class="circle" src="p9.jpeg" alt="icon">
+        </div>
+        <div class="row-content">
+            <h4 class="list-group-item-heading">Nita Mohanty
+            <small><span class="label label-info">Resident</span></small> </h4> </h4>
+            <p class="list-group-item-text">Submitted an issue</p>
+        </div>
+    </div>
+    <div class="list-group-separator"></div>
+    <div class="list-group-item">
+        <div class="row-picture">
+            <img class="circle" src="p11.jpeg" alt="icon">
+        </div>
+        <div class="row-content">
+            <h4 class="list-group-item-heading">Abhay Arora 
+            <small><span class="label label-info">President</span></small> </h4> 
+            <p class="list-group-item-text">Created the group</p>
+        </div>
+    </div>
+    <div class="list-group-separator"></div>
+
+
+</div>
+</div>
+</div><!--/col-md-8-->
+
+<div class="col-md-4">
+<div class="well">
+<div id="map"></div>
+</div>
+
+<div class="well">
+    <h2 style="color:#ff9800;font-weight:bold">324 <small>members</small></h2>
+    <div class="row">
+
+        <img class="img-rounded" src="p1.jpeg" alt="icon" width=50px>
+        <img class="img-rounded" src="p2.jpeg" alt="icon" width=50px>
+        <img class="img-rounded" src="p3.jpeg" alt="icon" width=50px>
+        <img class="img-rounded" src="p4.jpeg" alt="icon" width=50px>
+        <img class="img-rounded" src="p5.png" alt="icon" width=50px>
+        <img class="img-rounded" src="p6.jpeg" alt="icon" width=50px>
+        <img class="img-rounded" src="p7.jpeg" alt="icon" width=50px>
+        <img class="img-rounded" src="p8.jpeg" alt="icon" width=50px>
+        <img class="img-rounded" src="p9.jpeg" alt="icon" width=50px>
+        <img class="img-rounded" src="p10.jpeg" alt="icon" width=50px>
+    </div>
+    </div>
+
+</div><!--/col-md-4-->
+</div><!--/row-->
+
+
+
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="material/js/ripples.min.js"></script>
+    <script src="material/js/material.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script>
+    var map = L.map('map').setView([28.578, 77.243], 13);
+    L.tileLayer('http://{s}.tiles.mapbox.com/v3/dmj.j84l2g8e/{z}/{x}/{y}.png', {
+    maxZoom: 18
+}).addTo(map);
+
+var marker = L.marker([28.5789, 77.2439]).addTo(map);
+marker.bindPopup("<b>Lajpat Nagar RWA!</b> 124 residents").openPopup();
+
+
+    
+    </script>
+
+</div>
+</body>
+
+</html>
