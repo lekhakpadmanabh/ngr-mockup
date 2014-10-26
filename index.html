@@ -12,12 +12,13 @@
         .jumbotron {
           color: white;
           text-shadow: #444 0 1px 1px;
-          background:transparent;
+          background-color:rgba( 0, 0, 0, 0 );
           background-size: 100%;
           margin-bottom:0; 
+          z-index:0;
         }
         .navbar {margin-bottom:0; }
-        #map { height: 180px; }
+        #map { height: 220px; z-index:-1; position:absolute; width:100%; margin:0; padding:0;}
 
 
 
@@ -53,15 +54,19 @@
     </div>
 </div>
 
-<div class="jumbotron">
     <div id="map"></div>
-    <h1>Nagari</h1>
-    <p>Making it easier for societies to get funds and solve problems.</p>
+<div class="row">
+<div class="col-sm-4 col-sm-offset-4" style="">
+    <div class="well " style="color: black;background-color:rgba(255,255,255,0.6);margin-top:20px">
+    <h1 class="text-center">Nagari</h1>
+    <p class="text-center">Making it easier for societies to get funds and solve problems.</p>
+    </div>
+</div>
 </div>
 <br>
 <div class="container">
 
-<div class="row">
+<div class="row" style="margin-top:100px">
 <div class="col-md-6 text-center">
     <div class="well">
     <h2 class="text-center"> Societies </h2>
@@ -151,7 +156,7 @@
     <script src="material/js/material.min.js"></script>
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
     <script>
-var map = L.map('map').setView([28.578, 77.243], 13);
+var map = L.map('map', { zoomControl:false }).setView([28.6239, 77.2089], 14);
 
 L.tileLayer('http://{s}.tiles.mapbox.com/v3/dmj.j84l2g8e/{z}/{x}/{y}.png', {
 maxZoom: 18
